@@ -90,10 +90,10 @@ function generatePassword() {
   howMany = prompt(
     "How many characters long will your password be? Choose a number between 8 and 128."
   );
-  if (howMany <= 8 || howMany >= 128) {
+  if (howMany < 8 || howMany > 128) {
     return "Please choose a number between 8 and 128.";
   } else if (isNaN(howMany)) {
-    howMany = prompt("Please choose a number between 8 and 128. ");
+    return "Please choose a number between 8 and 128. ";
   } else {
     alert(`Your password will be ${howMany} characters long`);
   }
@@ -141,17 +141,29 @@ function generatePassword() {
   if (criteriaLower) {
     allChars = allChars.concat(lowerChars);
   }
+  else {
+    allChars = allChars
+  }
 
   if (criteriaUpper) {
     allChars = allChars.concat(upperChars);
+  }
+  else {
+    allChars = allChars
   }
 
   if (criteriaNum) {
     allChars = allChars.concat(numChars);
   }
+  else {
+    allChars = allChars
+  }
 
   if (criteriaSpecial) {
     allChars = allChars.concat(specialChars);
+  }
+  else {
+    allChars = allChars
   }
 
   // Combining all criteria for final password
